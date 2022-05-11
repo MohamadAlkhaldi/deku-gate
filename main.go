@@ -35,7 +35,7 @@ func defaultGOPATH() string {
 var Config_ Config
 
 func init() {
-	filename := "./dgate.yaml"
+	filename := "./deku-gate.yaml"
 	source, err := ioutil.ReadFile(filename)
 	if err != nil {
 		panic(err)

@@ -4,8 +4,8 @@ all: clean build env-up
 
 build:
 	@echo "Build..."
-	@go build
-	@docker build --tag dgate .
+	@CGO_ENABLED=0 GOOS=linux go build -o deku-gate
+	@docker build --tag deku-gate .
 	@echo "Build done"
 
 env-up:
@@ -22,8 +22,8 @@ env-down:
 
 clean: env-down
 	@echo "Cleaning up..."
-	@docker rm -f -v `docker ps -a --no-trunc | grep "dgate" | cut -d ' ' -f 1` 2>/dev/null || true
-	@docker rmi `docker images --no-trunc | grep "dgate" | cut -d ' ' -f 1` 2>/dev/null || true
+	@docker rm -f -v `docker ps -a --no-trunc | grep "deku-gate" | cut -d ' ' -f 1` 2>/dev/null || true
+	@docker rmi `docker images --no-trunc | grep "deku-gate" | cut -d ' ' -f 1` 2>/dev/null || true
 	@echo "Clean up done"
 
 	

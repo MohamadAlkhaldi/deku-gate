@@ -1,5 +1,4 @@
-FROM ubuntu:latest
-ADD dgate /
-ADD dgate.yaml /
-CMD ["/dgate"]
-
+FROM alpine:latest
+ADD deku-gate /
+ADD deku-gate.yaml /
+CMD ["/deku-gate"]
