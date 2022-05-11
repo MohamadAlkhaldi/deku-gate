@@ -1,7 +1,6 @@
 package main
 
 import (
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -9,6 +8,8 @@ import (
 	"path/filepath"
 	"runtime"
 	"strconv"
+
+	"gopkg.in/yaml.v2"
 )
 
 func defaultGOPATH() string {
@@ -24,11 +25,11 @@ func defaultGOPATH() string {
 		if filepath.Clean(def) == filepath.Clean(runtime.GOROOT()) {
 			// Don't set the default GOPATH to GOROOT
 			// as that will trigger warnings from the go tool
-			return ""  // ==>> EXITPOINT
+			return "" // ==>> EXITPOINT
 		}
-		return def  // ==>> EXITPOINT
+		return def // ==>> EXITPOINT
 	}
-	return ""  // ==>> EXITPOINT
+	return "" // ==>> EXITPOINT
 }
 
 var Config_ Config
